@@ -7,13 +7,14 @@ const Users = require('../users/user-model.js');
 router.post('/register', (req, res) => {
     let user = req.body;
     const hash = bcrypt.hashSync(user.password, 12);
+    console.log(hash)
     user.password = hash
     Users.add(user)
         .then(u => {
             res.status(201).json(u)
         })
         .catch(err => {
-            res.status(500).json(err)
+            res.status(500).json({message: "Couldn't create user"})
         })
 })
 
