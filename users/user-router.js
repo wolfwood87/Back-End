@@ -26,5 +26,17 @@ router.get('/:id', restricted, (req, res) => {
             res.status(500).json(err)
         })
 })
+//router.put to change user data
+router.put('/:id', restricted, (req, res) => {
+    const { id } = req.params
+    const updated = req.body
+    Users.update(id, updated)
+        .then(user => {
+            res.status(200).json(user)
+        })
+        .catch(err => {
+            res.status(500).json(err)
+        })
+})
 
 module.exports = router;

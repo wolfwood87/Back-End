@@ -5,6 +5,7 @@ module.exports = {
   find,
   findBy,
   findById,
+  update
 };
 
 function find() {
@@ -24,4 +25,12 @@ function findById(id) {
   return db('users')
     .where({ id })
     .first()
+}
+
+function update(id, changes) {
+  return db('users')
+    .where({id})
+    .first()
+    .update(changes)
+    .then(count => (count > 0 ? this.findById(id) : null))
 }
