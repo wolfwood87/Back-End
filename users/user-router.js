@@ -1,5 +1,5 @@
 const router = require('express').Router();
-
+const Trips = require('../trips/trip-model.js')
 const Users = require('./user-model.js');
 const restricted = require('../auth/restricted');
 
@@ -13,6 +13,7 @@ router.get('/', restricted, (req, res) => {
             res.status(500).json(err)
         })
 })
+
 
 router.get('/:id', restricted, (req, res) => {
     const { id } = req.params;
@@ -39,4 +40,27 @@ router.put('/:id', restricted, (req, res) => {
         })
 })
 
+router.post('/:id/newtrip', restricted, (req, res) => {
+    const { id } = req.params
+    let newTrip = req.body;
+    newTrip.user_id = id
+    Trips.add(newTrip)
+        .then(t => {
+            res.status(201).json(t)
+        })
+        .catch(err => {
+            res.status(500).json({message: "Could not create trip"})
+        })
+})
+
+router.get('/:id/trips', restricted, (req, res) => {
+    const { id } = req.params;
+    Trips.getTrips(id)
+        .then(trips => {
+            res.status(201).json(trips)
+        })
+        .catch(err => {
+            res.statusu(500).json({message: "Could not retrieve trips"})
+        })
+})
 module.exports = router;

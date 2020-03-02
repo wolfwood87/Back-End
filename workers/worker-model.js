@@ -9,26 +9,26 @@ module.exports = {
 };
 
 function find() {
-  return db('users').select('id', 'username');
+  return db('workers').select('id', 'username');
 }
 
 function findBy(filter) {
-  return db('users').where(filter);
+  return db('workers').where(filter);
 }
 
-async function add(user) {
-  const [id] = await db('users').insert(user);
+async function add(worker) {
+  const [id] = await db('workers').insert(worker);
   return findById(id);
 }
 
 function findById(id) {
-  return db('users')
+  return db('workers')
     .where({ id })
     .first()
 }
 
 function update(id, changes) {
-  return db('users')
+  return db('workers')
     .where({id})
     .first()
     .update(changes)

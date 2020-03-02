@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 const secrets = require('../config/secrets');
 
 module.exports = (req, res, next) => {
+    
 
     const token = req.headers.authorization;
   
@@ -21,4 +22,6 @@ module.exports = (req, res, next) => {
       res.status(401).json({message: "Error on login"})
     }
 }
-  
+
+
+
