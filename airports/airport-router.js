@@ -12,8 +12,8 @@ router.get('/', (req, res) => {
 })
 
 router.get('/:id', (req, res) => {
-    const { id } = req.params.id
-    Airports.findBy({iata_code: id})
+    const { id } = req.params
+    Airports.findBy({id: id})
         .then(airport => {
             res.status(200).json(airport)
         })
