@@ -1,6 +1,7 @@
 const db = require('../data/dbConfig.js');
 
 module.exports = {
+  get,
   add,
   getTrips,
   findBy,
@@ -11,11 +12,14 @@ module.exports = {
 
 function getTrips(id) {
   return db('user_airport_worker as uaw')
-            .join('users as u', 'u.id', 'uaw.user_id')
-            .join('airports as a', 'a.id', 'uaw.airport_id')
-            .join('workers as w', 'w.id', 'uaw.worker_id')
-            .select('u.username', 'a.name', 'w.username', 'uaw.*')
+            .leftJoin('users as u', 'u.id', 'uaw.user_id')
+            .leftJoin('airports as a', 'a.id', 'uaw.airport_id')
+            .leftJoin('workers as w', 'w.id', 'uaw.worker_id')
+            .select('u.username as user', 'a.name as airport_name', 'a.iata_code', 'a.icao_code', 'w.username as worker', 'uaw.*')
             .where({user_id: id});
+}
+function get() {
+    return db('user_airport_worker')
 }
 
 function findBy(filter) {
@@ -29,7 +33,7 @@ async function add(trip) {
 
 function findById(id) {
   return db('user_airport_worker')
-    .where({ id })
+    .where({ id: id })
     .first()
 }
 

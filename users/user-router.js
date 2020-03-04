@@ -57,7 +57,7 @@ router.get('/:id/trips', restricted, (req, res) => {
     const { id } = req.params;
     Trips.getTrips(id)
         .then(trips => {
-            res.status(201).json(trips)
+            res.status(200).json(trips)
         })
         .catch(err => {
             res.statusu(500).json({message: "Could not retrieve trips"})

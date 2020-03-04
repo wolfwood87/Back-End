@@ -6,12 +6,21 @@ const Trips = require('../trips/trip-model.js');
 const restricted = require('../auth/restricted');
 
 
+router.get('/', restricted, (req, res) => {
+    Trips.get()
+        .then(trip => {
+            res.status(200).json(trip)
+        })
+        .catch(err => {
+            res.status(500).json({message: "Could not retrieve trips"})
+        })
+})
+
 router.get('/:id', restricted, (req, res) => {
     const { id } = req.params;
     console.log(id)
     Trips.findById(id)
         .then(trip => {
-            console.log(worker)
             res.status(200).json(trip)
         })
         .catch(err => {

@@ -6,7 +6,7 @@ module.exports = {
 };
 
 function find() {
-  return db('airports').select('id', 'icao_code', 'name');
+  return db('airports').select('id', 'icao_code', 'iata_code', 'name');
 }
 
 function findBy(filter) {
