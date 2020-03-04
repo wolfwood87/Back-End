@@ -12,6 +12,7 @@ POST /api/workers/register for signup (will put them on an unapproved list which
 POST /api/workers/login for login
 GET /api/workers/:id to retrieve worker data
 PUT /api/workers/:id to change worker data
+GET /api/workers/:id/trips to get trips assigned to the worker
 
 Airport routes
 GET /api/airports/ for a full airport list

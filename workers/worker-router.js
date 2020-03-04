@@ -66,6 +66,16 @@ router.put('/:id', restricted, (req, res) => {
         })
 })
 
+router.get('/:id/trips', restricted, (req, res) => {
+    const { id } = req.params;
+    Workers.getTrips(id)
+        .then(trips => {
+            res.status(200).json(trips)
+        })
+        .catch(err => {
+            res.statusu(500).json({message: "Could not retrieve trips"})
+        })
+})
 
 function genToken(worker) {
     const payload = {
