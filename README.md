@@ -1,5 +1,26 @@
 # Back End - Kidsfly
 
+{
+    Table of Contents
+
+    Note
+    User Data Structure
+    User Routes
+    Worker Data Structure
+    Worker Routes
+    Airport Data Structure
+    Airport Routes
+    Admin Data Structure
+    Admin Routes
+    Trip Data structure
+    Trip routes   
+}
+
+## Note
+{
+     All airport data taken directly from global airport database. Can be found at https://www.partow.net/miscellaneous/airportdatabase/index.html#Downloads
+}
+
 ## User data structure
 
     {
@@ -12,7 +33,7 @@
         airport_id:
         phone:
     }
-    
+
 ## User routes
 
 -   POST /api/auth/register for signup
@@ -61,6 +82,7 @@
         lat_decimal:
         lon_decimal:
     }
+
 
 ## Airport routes
 
