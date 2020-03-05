@@ -17,4 +17,7 @@ server.use('/api/admins', adminRouter);
 server.use('/api/workers', workerRouter);
 server.use('/api/airports', airportRouter);
 
+server.get('/', (req, res) => {
+    res.status(200).json({api: "Welcome to the Kidsfly server!"})
+})
 module.exports = server;

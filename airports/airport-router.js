@@ -4,7 +4,7 @@ const Airports = require('../airports/airport-model.js');
 router.get('/', (req, res) => {
     Airports.find()
         .then(airports => {
-            res.status(201).json(airports)
+            res.status(200).json(airports)
         })
         .catch(err => {
             res.status(500).json({message: "Could not retrieve airports"})
