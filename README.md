@@ -1,6 +1,6 @@
 # Back End - Kidsfly
 
-{
+
     Table of Contents
 
     Note
@@ -14,7 +14,7 @@
     Admin Routes
     Trip Data structure
     Trip routes   
-}
+
 
 ## Note
 
