@@ -49,7 +49,7 @@ describe('admin endpoint', () => {
         expect(admin.status).toBe(401);
     })
     it('should succeed in showing user', async () => {
-        const data = {username: 'User', password: 'password'}
+        const data = {username: 'Admin', password: 'password'}
         const newAdmin = await request(server).post('/api/admins/register').send(data)
         var token;
         const login = await request(server).post('/api/admins/login')
