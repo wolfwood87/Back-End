@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const secrets = require('../config/secrets.js');
+
 const Trips = require('../trips/trip-model.js');
 const restricted = require('../auth/restricted');
 

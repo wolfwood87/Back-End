@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const secrets = require('../config/secrets.js');
+
 const Workers = require('../workers/worker-model.js');
 const restricted = require('../auth/restricted');
 
@@ -87,7 +87,7 @@ function genToken(worker) {
         expiresIn: "8h"
     }
 
-    const token = jwt.sign(payload, secrets.jwtSecret, options);
+    const token = jwt.sign(payload, process.env.JWT_SECRET, options);
 
     return token;
 }

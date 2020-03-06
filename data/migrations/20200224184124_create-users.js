@@ -13,15 +13,15 @@ exports.up = function(knex, Promise) {
         tbl.string('name', 50);
         tbl.string('city', 50);
         tbl.string('country', 50);
-        tbl.int('lat_deg');
-        tbl.int('lat_min');
-        tbl.int('lat_sec');
+        tbl.integer('lat_deg');
+        tbl.integer('lat_min');
+        tbl.integer('lat_sec');
         tbl.string('lat_dir');
-        tbl.int('lon_deg');
-        tbl.int('lon_min');
-        tbl.int('lon_sec');
+        tbl.integer('lon_deg');
+        tbl.integer('lon_min');
+        tbl.integer('lon_sec');
         tbl.string('lon_dir');
-        tbl.int('altitude');
+        tbl.integer('altitude');
         tbl.double('lat_decimal');
         tbl.double('lon_decimal');
 
@@ -31,11 +31,11 @@ exports.up = function(knex, Promise) {
           tbl.increments();
           tbl.string('username', 255).notNullable().unique();
           tbl.string('password', 255).notNullable();
-          tbl.blob('image');
+          tbl.string('image');
           tbl.string('name', 255);
           tbl.string('address', 255);
           tbl.integer('airport_id').unsigned().references('airports.id').onDelete('CASCADE').onUpdate('CASCADE');
-          tbl.integer('phone');
+          tbl.string('phone');
       })
       .createTable('workers', tbl => {
         tbl.increments();
@@ -43,7 +43,7 @@ exports.up = function(knex, Promise) {
         tbl.string('password', 255).notNullable();
         tbl.string('name', 255);
         tbl.text('description');
-        tbl.blob('image');
+        tbl.string('image');
       })
       .createTable('user_airport_worker', tbl => {
         tbl.increments();
