@@ -99,11 +99,11 @@
 
 ## Admin routes
 
--   POST /api/admin/login for login
--   GET /api/admin/:id to retrieve admin data
--   GET /api/admin/badlist to retrieve workers that haven't been approved in order to  
+-   POST /api/admins/login for login
+-   GET /api/admins/:id to retrieve admin data
+-   GET /api/admins/badlist to retrieve workers that haven't been approved in order to  
         approve them
--   GET /api/admin/goodlist to get the opposite
+-   GET /api/admins/goodlist to get the opposite
 
 ## Trip data structure
 
