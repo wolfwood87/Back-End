@@ -11,7 +11,7 @@ module.exports = {
 
 function find() {
   return db('users as u')
-    .join('airports as a', 'a.id', 'u.airport_id')
+    .leftJoin('airports as a', 'a.id', 'u.airport_id')
     .select('u.*', 'a.name', 'a.iata_code', 'a.icao_code')
 }
 

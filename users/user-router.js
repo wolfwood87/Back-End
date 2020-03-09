@@ -27,6 +27,7 @@ router.get('/:id', restricted, (req, res) => {
             res.status(500).json(err)
         })
 })
+
 //router.put to change user data
 router.put('/:id', restricted, (req, res) => {
     const { id } = req.params
@@ -39,6 +40,8 @@ router.put('/:id', restricted, (req, res) => {
             res.status(500).json(err)
         })
 })
+
+
 
 router.post('/:id/newtrip', restricted, (req, res) => {
     const { id } = req.params
