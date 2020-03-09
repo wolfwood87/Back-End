@@ -34,7 +34,8 @@ exports.up = function(knex, Promise) {
           tbl.string('image');
           tbl.string('name', 255);
           tbl.string('address', 255);
-          tbl.integer('airport_id').unsigned().references('airports.id').onDelete('CASCADE').onUpdate('CASCADE');
+          tbl.integer('airport_id').unsigned().references('airports.id')
+                .onDelete('CASCADE').onUpdate('CASCADE');
           tbl.string('phone');
       })
       .createTable('workers', tbl => {
@@ -47,9 +48,12 @@ exports.up = function(knex, Promise) {
       })
       .createTable('user_airport_worker', tbl => {
         tbl.increments();
-        tbl.integer('user_id').unsigned().notNullable().references('users.id').onDelete('CASCADE').onUpdate('CASCADE');
-        tbl.integer('airport_id').unsigned().notNullable().references('airports.id').onDelete('CASCADE').onUpdate('CASCADE')
-        tbl.integer('worker_id').unsigned().references('workers.id').onDelete('CASCADE').onUpdate('CASCADE');
+        tbl.integer('user_id').unsigned().notNullable().references('users.id')
+              .onDelete('CASCADE').onUpdate('CASCADE');
+        tbl.integer('airport_id').unsigned().notNullable()
+              .references('airports.id').onDelete('CASCADE').onUpdate('CASCADE')
+        tbl.integer('worker_id').unsigned().references('workers.id')
+              .onDelete('CASCADE').onUpdate('CASCADE');
         tbl.string('airline', 255);
         tbl.string('flight_number', 255);
         tbl.string('departure_time', 255).notNullable();
