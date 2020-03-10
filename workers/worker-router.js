@@ -40,6 +40,7 @@ router.post('/login', (req, res) => {
 })
 
 
+
 router.get('/:id', restricted, (req, res) => {
     const { id } = req.params;
     console.log(id)
