@@ -48,6 +48,6 @@ describe('trip endpoint', () => {
     })
 })
 
-beforeEach(async () => {
-    await db('workers').truncate();
-})
+// beforeEach(async () => {
+//     await db('workers').truncate();
+// })
